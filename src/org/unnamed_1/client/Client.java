@@ -26,7 +26,7 @@ public class Client {
                 System.err.println("You typed a wrong ip!");
             }
         }
-
+        
         Socket socket;
         try {
             socket = new Socket(ip, 9090);
