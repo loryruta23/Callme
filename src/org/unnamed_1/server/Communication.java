@@ -26,7 +26,6 @@ public class Communication extends Thread {
                 Client client = new Client(socket);
                 String name = client.readString();
                 users.add(new User(client, name));
-                System.out.println("The user " + name + " has been accepted.");
             } catch (IOException ignored) {
             }
         }

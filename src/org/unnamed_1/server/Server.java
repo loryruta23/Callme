@@ -11,6 +11,7 @@ public class Server {
     public Server(int port) {
         try {
             server = new ServerSocket(port);
+            System.out.println("Server started! pt.2");
         } catch (IOException exception) {
             throw new IllegalStateException("Cannot host a local server on the port" + port + ": " + exception);
         }
