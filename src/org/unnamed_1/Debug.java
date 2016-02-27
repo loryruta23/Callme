@@ -24,7 +24,7 @@ public enum Debug {
     }
 
     public static void print(Debug type, String message) {
-        type.getPrintStream().print(type.color + message + RESET.color);
+        type.getPrintStream().print(type.color + "[" + type.name() + "] " + message + RESET.color);
     }
 
     public static void println(Debug type, String message) {

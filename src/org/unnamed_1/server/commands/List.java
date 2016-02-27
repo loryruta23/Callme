@@ -22,7 +22,7 @@ public class List extends Command {
         if (users.size() > 0) {
             out = "Found " + users.size() + " users, here's their data [ip|name]:";
             for (User user : users)
-                out += "\n- " + user.getClient().getSocket().getInetAddress().getHostName() + " " + user.getName();
+                out += "\n- " + user.getClient().getSocket().getRemoteSocketAddress() + " " + user.getName();
         } else {
             out = "There's no user connected to the server.";
         }

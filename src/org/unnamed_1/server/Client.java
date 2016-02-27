@@ -25,7 +25,7 @@ public class Client {
         byte[] data = new byte[length];
         try {
             int result = socket.getInputStream().read(data);
-            if (result < -1)
+            if (result == -1)
                 return new byte[0];
         } catch (IOException exception) {
             throw new IllegalStateException("Something wrong during data reading: " + exception);

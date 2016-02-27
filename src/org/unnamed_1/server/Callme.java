@@ -10,10 +10,11 @@ public class Callme {
 
     public static void main(String[] args) {
         server = new Server(9090);
+
         inputManager = new InputManager();
-        inputManager.start();
         inputManager.getCommandManager().addCommand(new Exit());
         inputManager.getCommandManager().addCommand(new List());
+        inputManager.start();
     }
 
     public static void exit(long sleep) {
