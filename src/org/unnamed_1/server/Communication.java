@@ -22,6 +22,7 @@ public class Communication extends Thread {
     public void run() {
         while (isAlive()) {
             try {
+                System.out.println("Waiting for connections...");
                 Socket socket = server.getSocket().accept();
                 Client client = new Client(socket);
                 String name = client.readString();

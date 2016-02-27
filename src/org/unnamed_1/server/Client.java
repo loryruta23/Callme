@@ -5,7 +5,6 @@ import java.net.Socket;
 import java.nio.charset.Charset;
 
 public class Client {
-
     private final Socket socket;
 
     public Client(Socket socket) {
