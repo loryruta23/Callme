@@ -5,12 +5,12 @@ import java.net.Socket;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Communication extends Thread {
+public class Acceptor extends Thread {
 
     private final Server server;
     private final List<User> users = new LinkedList<>();
 
-    public Communication(Server server) {
+    public Acceptor(Server server) {
         if (!server.isOnline())
             throw new IllegalArgumentException("The server must be online before initializing communication handler!");
         this.server = server;

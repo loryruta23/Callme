@@ -17,7 +17,7 @@ public class List extends Command {
             Debug.println(Debug.ERROR, "You've typed too many arguments!");
             return;
         }
-        java.util.List<User> users = Callme.getServer().getCommunication().getUsers();
+        java.util.List<User> users = Callme.getServer().getAcceptor().getUsers();
         String out;
         if (users.size() > 0) {
             out = "Found " + users.size() + " users, here's their data [ip|name]:";

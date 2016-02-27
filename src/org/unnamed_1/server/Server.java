@@ -8,7 +8,7 @@ import java.net.ServerSocket;
 public class Server {
 
     private final ServerSocket server;
-    private final Communication communication;
+    private final Acceptor acceptor;
 
     public Server(int port) {
         try {
@@ -16,13 +16,13 @@ public class Server {
         } catch (IOException exception) {
             throw new IllegalStateException("Cannot host a local server on the port" + port + ": " + exception);
         }
-        this.communication = new Communication(this);
-        communication.start();
+        this.acceptor = new Acceptor(this);
+        acceptor.start();
         Debug.println(Debug.SUCCESS, "Server initialized successfully!");
     }
 
     public void exit() {
-        communication.interrupt();
+        acceptor.interrupt();
         try {
             server.close();
         } catch (IOException exception) {
@@ -38,7 +38,7 @@ public class Server {
         return server;
     }
 
-    public Communication getCommunication() {
-        return communication;
+    public Acceptor getAcceptor() {
+        return acceptor;
     }
 }
