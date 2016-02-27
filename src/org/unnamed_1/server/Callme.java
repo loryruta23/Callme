@@ -7,7 +7,6 @@ public class Callme {
 
     public static void main(String[] args) {
         server = new Server(9090);
-        server.start();
         inputManager = new InputManager();
         inputManager.start();
     }

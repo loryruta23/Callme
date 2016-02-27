@@ -5,22 +5,16 @@ import java.net.ServerSocket;
 
 public class Server {
 
-    private final int port;
+    private final ServerSocket server;
     private final Communication communication;
 
-    private ServerSocket server;
-
     public Server(int port) {
-        this.port = port;
-        this.communication = new Communication(this);
-    }
-
-    public void start() {
         try {
-            server = new ServerSocket(port);
+            this.server = new ServerSocket(port);
         } catch (IOException exception) {
             throw new IllegalStateException("Cannot host a local server on the port" + port + ": " + exception);
         }
+        this.communication = new Communication(this);
         communication.start();
     }
 
