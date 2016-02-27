@@ -22,4 +22,8 @@ public class Server {
     public ServerSocket getSocket() {
         return server;
     }
+
+    public Communication getCommunication() {
+        return communication;
+    }
 }
