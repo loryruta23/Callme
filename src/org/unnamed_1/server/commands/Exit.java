@@ -1,5 +1,6 @@
 package org.unnamed_1.server.commands;
 
+import org.unnamed_1.Command;
 import org.unnamed_1.Debug;
 import org.unnamed_1.server.Callme;
 

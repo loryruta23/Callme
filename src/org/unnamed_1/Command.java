@@ -1,4 +1,4 @@
-package org.unnamed_1.server.commands;
+package org.unnamed_1;
 
 public abstract class Command {
 
