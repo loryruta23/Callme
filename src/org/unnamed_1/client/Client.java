@@ -1,5 +1,7 @@
 package org.unnamed_1.client;
 
+import org.unnamed_1.client.commands.CmdManager;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -45,7 +47,7 @@ public class Client {
                 System.err.println("You typed an invalid username!");
             }
         }
-//FANCULO COMPILATORE DEMMERDA
+
         try {
             socket.getOutputStream().write(username.length());
             //prima si invia la lunghezza del pacchetto (questo lo è)
@@ -53,6 +55,11 @@ public class Client {
             //ritorna "l'ASCII" di ogni lettera
         } catch (IOException e) {
             throw new IllegalStateException("Cannot send data to the server: " + e.toString());
+        }
+
+        CmdManager manager = new CmdManager();
+        while(true) {
+            String command = reader.readLine();
         }
     }
 }
