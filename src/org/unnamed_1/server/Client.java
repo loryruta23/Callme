@@ -19,12 +19,14 @@ public class Client {
         int length;
         try {
             length = socket.getInputStream().read();
+            if (length <= 0)
+                return new byte[0];
         } catch (IOException exception) {
             throw new IllegalStateException("Something wrong during data reading: " + exception);
         }
         byte[] data = new byte[length];
         try {
-            int result = socket.getInputStream().read(data);
+            int result = socket.getInputStream().read(data, 0, length);
             if (result == -1)
                 return new byte[0];
         } catch (IOException exception) {

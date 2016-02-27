@@ -1,4 +1,4 @@
-package org.unnamed_1.server.utils;
+package org.unnamed_1.utils;
 
 public class ByteUtil {
 
