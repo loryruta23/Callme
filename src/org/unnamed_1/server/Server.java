@@ -12,9 +12,10 @@ public class Server {
         try {
             server = new ServerSocket(port);
         } catch (IOException exception) {
-            throw new IllegalStateException("Cannot host a local server on port 9090: " + exception);
+            throw new IllegalStateException("Cannot host a local server on the port" + port + ": " + exception);
         }
         this.communication = new Communication(this);
+        communication.start();
     }
 
     public ServerSocket getSocket() {

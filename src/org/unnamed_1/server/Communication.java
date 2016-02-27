@@ -14,14 +14,20 @@ public class Communication extends Thread {
         this.server = server;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
     @Override
     public void run() {
         while (isAlive()) {
             try {
                 Socket socket = server.getSocket().accept();
-
+                Client client = new Client(socket);
+                String name = client.readString();
+                users.add(new User(client, name));
+                System.out.println("The user " + name + " has been accepted.");
             } catch (IOException ignored) {
-
             }
         }
     }
