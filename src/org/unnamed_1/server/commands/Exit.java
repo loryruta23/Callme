@@ -17,6 +17,6 @@ public class Exit extends Command {
             return;
         }
         Callme.exit(1000);
-        Debug.println(Debug.SUCCESS, "Server stopped successfully.");
+        Debug.println(Debug.SUCCESS, "Server stopped successfully. Exiting in 1s...");
     }
 }

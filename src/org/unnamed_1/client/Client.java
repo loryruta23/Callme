@@ -1,5 +1,7 @@
 package org.unnamed_1.client;
 
+import org.unnamed_1.Debug;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -54,6 +56,7 @@ public class Client {
         } catch (IOException e) {
             throw new IllegalStateException("Cannot send data to the server: " + e.toString());
         }
+        Debug.println(Debug.SUCCESS, "Successfully logged in.");
         while(true) {
             // action
         }
