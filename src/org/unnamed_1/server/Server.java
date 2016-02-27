@@ -23,6 +23,15 @@ public class Server {
         return server;
     }
 
+    public void exit() {
+        communication.interrupt();
+        try {
+            server.close();
+        } catch (IOException exception) {
+            System.err.println("Error during server exiting: " + exception);
+        }
+    }
+
     public Communication getCommunication() {
         return communication;
     }
