@@ -3,14 +3,31 @@ package org.unnamed_1.server;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-public class Server extends Thread {
+public class Server {
 
-    public static void main(String[] args) {
+    private final ServerSocket server;
+    private final Communication communication;
+
+    public Server(int port) {
         try {
-            ServerSocket server = new ServerSocket(9090);
-        } catch (IOException ignored) {
+            server = new ServerSocket(port);
+        } catch (IOException exception) {
+            throw new IllegalStateException("Cannot host a local server on port 9090: " + exception);
         }
+        this.communication = new Communication(this);
     }
 
+    public ServerSocket getSocket() {
+        return server;
+    }
 
+    @Override
+    public void run() {
+
+        try {
+            server = new ServerSocket(9090);
+        } catch (IOException ignored) {
+        }
+
+    }
 }
