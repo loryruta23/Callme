@@ -1,7 +1,5 @@
 package org.unnamed_1.client;
 
-import org.unnamed_1.client.commands.CmdManager;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,7 +13,7 @@ import java.net.Socket;
 //InputStreamReader = canale in cui viaggiano i dati in INPUT
 
 public class Client {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String ip;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -28,7 +26,7 @@ public class Client {
                 System.err.println("You typed a wrong ip!");
             }
         }
-        
+
         Socket socket;
         try {
             socket = new Socket(ip, 9090);
@@ -56,10 +54,8 @@ public class Client {
         } catch (IOException e) {
             throw new IllegalStateException("Cannot send data to the server: " + e.toString());
         }
-
-        CmdManager manager = new CmdManager();
         while(true) {
-            String command = reader.readLine();
+            // action
         }
     }
 }

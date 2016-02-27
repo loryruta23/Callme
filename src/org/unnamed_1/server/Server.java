@@ -1,5 +1,7 @@
 package org.unnamed_1.server;
 
+import org.unnamed_1.Debug;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 
@@ -16,6 +18,7 @@ public class Server {
         }
         this.communication = new Communication(this);
         communication.start();
+        Debug.println(Debug.SUCCESS, "Server initialized successfully!");
     }
 
     public void exit() {

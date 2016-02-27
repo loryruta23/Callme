@@ -7,7 +7,7 @@ public enum Debug {
 
     RESET("\u001B[0m", false),
     SUCCESS("\u001B[32m", false),
-    INFO("\u001B[37m", false),
+    INFO("\u001B[34m", false),
     WARNING("\u001B[33m", true),
     ERROR("\u001B[31m", true);
 

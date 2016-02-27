@@ -16,6 +16,7 @@ public class Exit extends Command {
             Debug.println(Debug.ERROR, "You've typed too many arguments!");
             return;
         }
-        Callme.getServer().exit();
+        Callme.exit(1000);
+        Debug.println(Debug.SUCCESS, "Server stopped successfully.");
     }
 }

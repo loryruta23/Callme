@@ -3,7 +3,7 @@ package org.unnamed_1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CmdManager {
+public class CommandManager {
 
     private final List<Command> commands = new ArrayList<>();
 
