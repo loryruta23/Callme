@@ -46,7 +46,16 @@ public class Client {
             }
         }
 
-        socket.getOutputStream()
+        try {
+            socket.getOutputStream().write(username.length());
+            //prima si invia la lunghezza del pacchetto (questo lo è)
+            socket.getOutputStream().write(username.getBytes("UTF-8"));
+            //ritorna "l'ASCII" di ogni lettera
+        } catch (IOException e) {
+            throw new IllegalStateException("Cannot send data to the server: " + e.toString());
+        }
+
+
 
     }
 }
