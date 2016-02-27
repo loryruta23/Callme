@@ -45,7 +45,7 @@ public class Client {
                 System.err.println("You typed an invalid username!");
             }
         }
-
+//FANCULO COMPILATORE DEMMERDA
         try {
             socket.getOutputStream().write(username.length());
             //prima si invia la lunghezza del pacchetto (questo lo è)
