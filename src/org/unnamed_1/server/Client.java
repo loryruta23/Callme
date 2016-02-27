@@ -2,6 +2,7 @@ package org.unnamed_1.server;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.nio.charset.Charset;
 
 public class Client {
 
@@ -20,18 +21,23 @@ public class Client {
         try {
             length = socket.getInputStream().read();
         } catch (IOException exception) {
-            throw new IllegalStateException("The connection is closed: " + exception);
+            throw new IllegalStateException("Something wrong during data reading: " + exception);
         }
         byte[] data = new byte[length];
         try {
-            socket.getInputStream().read(data);
-        } catch (IOException e) {
-            throw new IllegalStateException("The connection ")
+            int result = socket.getInputStream().read(data);
+            if (result < -1)
+                return new byte[0];
+        } catch (IOException exception) {
+            throw new IllegalStateException("Something wrong during data reading: " + exception);
         }
+        return data;
+    }
 
+    public String readString() {
+        return new String(read(), Charset.forName("UTF-8"));
     }
 
     public void write(byte[] data) {
-
     }
 }

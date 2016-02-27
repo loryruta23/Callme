@@ -20,14 +20,4 @@ public class Server {
     public ServerSocket getSocket() {
         return server;
     }
-
-    @Override
-    public void run() {
-
-        try {
-            server = new ServerSocket(9090);
-        } catch (IOException ignored) {
-        }
-
-    }
 }
