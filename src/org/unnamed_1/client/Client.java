@@ -54,8 +54,5 @@ public class Client {
         } catch (IOException e) {
             throw new IllegalStateException("Cannot send data to the server: " + e.toString());
         }
-
-
-
     }
 }
