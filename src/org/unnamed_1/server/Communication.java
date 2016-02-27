@@ -11,6 +11,8 @@ public class Communication extends Thread {
     private final List<User> users = new LinkedList<>();
 
     public Communication(Server server) {
+        if (!server.isOnline())
+            throw new IllegalArgumentException("The server must be online before initializing communication handler!");
         this.server = server;
     }
 

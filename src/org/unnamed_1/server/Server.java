@@ -5,22 +5,23 @@ import java.net.ServerSocket;
 
 public class Server {
 
-    private final ServerSocket server;
+    private final int port;
     private final Communication communication;
 
+    private ServerSocket server;
+
     public Server(int port) {
+        this.port = port;
+        this.communication = new Communication(this);
+    }
+
+    public void start() {
         try {
             server = new ServerSocket(port);
-            System.out.println("Server started! pt.2");
         } catch (IOException exception) {
             throw new IllegalStateException("Cannot host a local server on the port" + port + ": " + exception);
         }
-        this.communication = new Communication(this);
         communication.start();
-    }
-
-    public ServerSocket getSocket() {
-        return server;
     }
 
     public void exit() {
@@ -30,6 +31,14 @@ public class Server {
         } catch (IOException exception) {
             System.err.println("Error during server exiting: " + exception);
         }
+    }
+
+    public boolean isOnline() {
+        return server != null;
+    }
+
+    public ServerSocket getSocket() {
+        return server;
     }
 
     public Communication getCommunication() {
